@@ -56,6 +56,7 @@ def calcular_nim(x,y,z):
     for k in range(z+1):
         valores.append(x^y^k)
 
+    valores.append(x^y^z)
     
     return mex(valores)
 
