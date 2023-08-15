@@ -60,18 +60,33 @@ def calcular_nim(x,y,z):
     
     return mex(valores)
 
-n = 4
+n = 10
 
 qtde_ramos = []
 resultado = []
 
+'''
 for x in range(n):
     for y in range(n):
         for z in range(n):
                 if(x <= y and y <= z):
                      qtde_ramos.append((x+1,y+1,z+1))
                      resultado.append(calcular_nim(x+1,y+1,z+1))
+'''
+
+#TAMANHO FIXO PARA UM DOS RAMOS
+x = 2
+for y in range(x,n):
+    for z in range(x,n):
+        if(y <= z):
+            qtde_ramos.append((x+1, y+1, z+1))
+            resultado.append(calcular_nim(x+1,y+1,z+1))
 
 
 for i in range(len(qtde_ramos)):
     print("Para ", qtde_ramos[i], ": ", resultado[i])
+
+
+df = pd.DataFrame(resultado)
+
+df.to_excel("resultado.xlsx", index = False)
