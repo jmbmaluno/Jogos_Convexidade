@@ -29,6 +29,5 @@ class Grafo:
         return r
 
 
-g = Grafo(v = [1,2,3], e = [(1,2), (2,3), (3,1)])
 
-print(g)
+
