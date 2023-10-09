@@ -1,44 +1,32 @@
 class Grafo:
 
-    def __init__(self, v = None, e = None):
+    def __init__(self, v, e = None):
         self.V = v
         self.E = e
-        self.matriz_adjacencia = []
+
+        qtde = len(self.V)
+        self.matriz_adjacencia = [] 
         
-        if self.V != None:
-            qtde = len(self.V)
-            l = [0] * qtde
-            for i in range(qtde):   
-                self.matriz_adjacencia.append(l)
+        for i in range(qtde):
+           self.matriz_adjacencia.append([0] * qtde)
         
         if self.E != None:
             for i in self.E:
-                print(i)
                 a,b = i
-                self.matriz_adjacencia[0][1] = 1
-                print(self.matriz_adjacencia[0])
-
+                self.matriz_adjacencia[a-1][b-1] = 1
+                self.matriz_adjacencia[b-1][a-1] = 1
+        
     def __str__(self):
-        r = "  "
-        
-        for i in self.V:
-            r = r + " " + str(i)
-        
-        r = r + "\n"
+        r = ""
 
-        
-        for i in range(len(self.matriz_adjacencia)):
-            
-            r = r + str(self.V[i]) + " "
-
-            for j in self.matriz_adjacencia[i]:
-                r = r + " " + str(j)
+        for i in self.matriz_adjacencia:
+            for j in i:
+                r = r + str(j) + " "
 
             r = r + "\n"
-
-        return r
         
 
+        return r
 
 
 g = Grafo(v = [1,2,3], e = [(1,2), (2,3), (3,1)])
