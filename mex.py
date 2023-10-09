@@ -1,7 +1,7 @@
 def trocar(conjunto,i,j):
-    aux = conjunto[i]
+    a = conjunto[i]
     conjunto[i] = conjunto[j]
-    conjunto[j] = aux
+    conjunto[j] = a
 
 
 def particionar(conjunto, i, j):
